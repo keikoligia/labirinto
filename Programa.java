@@ -9,9 +9,13 @@ public class Programa {
 
         ManipuladorDeArquivo abriu = new ManipuladorDeArquivo();
 
-        abriu.AbrirArquivo(arquivo);
+        Matriz matriz = new Matriz();
 
-        System.out.println(abriu.getBaixo());
+        abriu.AbrirArquivo(arquivo);
+        abriu.displayArray();
+
+        System.out.println(abriu.getNumLinhas());
+        System.out.println(matriz.getBaixo());
         
     }
 }

@@ -1,18 +1,37 @@
-public class Caminho <Coordenada>
+public class Caminho<Coordenada>
 {
     private Pilha<Coordenada> caminho;
     private Pilha<Fila<Coordenada>> possibilidades;
     private Fila<Coordenada> fila;
 
-    ManipuladorDeArquivo labirinto = new ManipuladorDeArquivo();
-    int capacidade = labirinto.getTamanho();
-/*
+    Matriz matriz = new Matriz();
+    int capacidade = matriz.getTamanho();
+    ManipuladorDeArquivo labirinto;
+
     public Caminho()
     {
-        this.caminho = new Pilha<Coordenada>(capacidade);
-        this.possibilidades = new Pilha<Fila<Coordenada>>(45);
-        this.fila = new Fila<Coordenada>(3);
+        try
+        {
+            this.caminho = new Pilha<Coordenada>(capacidade);
+            this.possibilidades = new Pilha<Fila<Coordenada>>(45);
+            this.fila = new Fila<Coordenada>(3);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
-*/
 
+    public String acharEntrada()
+    {
+        int ultimaLinha = labirinto.getNumLinhas();
+        int ultimaColuna = labirinto.getNumColunas();
+
+        for(int i = 0; i < labirinto.getLabirintoLength(); i++)
+        {
+
+        }
+
+        return "a";
+    }
 }

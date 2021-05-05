@@ -46,6 +46,13 @@ public class ManipuladorDeArquivo
             System.err.println("IOException: " + e.getMessage());
         }
     }
+
+    public int getLabirintoLength() { return labirinto.length; }
+
+    public int getNumLinhas() { return numLinhas; }
+
+    public int getNumColunas() { return numColunas; }
+
     public static void displayArray()
     {
         for (int x = 0; x < labirinto.length; x++)
@@ -57,38 +64,6 @@ public class ManipuladorDeArquivo
             System.out.println();
         }
         System.out.println();
-    }
-
-    public int getTamanho()
-    {
-        int tamanho = 0;
-        tamanho = numLinhas * numColunas;
-
-        return tamanho;
-    }
-
-    public String getBaixo()
-    {
-        int linha = lin + 1;
-        return "("+ linha + "," + col + ")";
-    }
-
-    public String getCima()
-    {
-        int linha = lin - 1;
-        return "(" + linha + "," + col + ")";
-    }
-
-    public String getDireita()
-    {
-        int coluna = col + 1;
-        return "(" + lin + "," + coluna + ")";
-    }
-
-    public String getEsquerda()
-    {
-        int coluna = col - 1;
-        return "(" + lin + "," + coluna + ")";
     }
 
     public String toString ()
