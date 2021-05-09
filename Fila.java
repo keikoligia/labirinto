@@ -14,8 +14,7 @@ public class Fila <X> implements Cloneable
         this.elemento       = new Object [tamanho]; //this.elemento=new X [tamanho];
         this.tamanhoInicial = tamanho;
     }
-
-
+    
     private void redimensioneSe (float fator)
     {
         // X[] novo = new X [Math.round(this.elemento.length*fator)];

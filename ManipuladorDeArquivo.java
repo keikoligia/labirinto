@@ -3,7 +3,7 @@ import java.util.*;
 
 public class ManipuladorDeArquivo
 {
-    private static char labirinto[][];
+    private char labirinto[][];
     private static Stack<Character> stack = new Stack<Character>();
     private int lin;
     private int col;
@@ -53,7 +53,9 @@ public class ManipuladorDeArquivo
 
     public int getNumColunas() { return numColunas; }
 
-    public static void displayArray()
+    public char[][] getLabirinto() { return labirinto; }
+
+    public void displayArray()
     {
         for (int x = 0; x < labirinto.length; x++)
         {
@@ -64,6 +66,30 @@ public class ManipuladorDeArquivo
             System.out.println();
         }
         System.out.println();
+    }
+
+    public Coordenada acharEntrada() throws Exception
+    {
+        Coordenada coordenadaEntrada = null; //corrigir dps
+        try
+        {
+            for1 : for (int x = 0; x < labirinto.length; x++)
+            {
+                for (int y = 0; y < labirinto[x].length; y++)
+                {
+                    if(labirinto[x][y] == 'E')
+                    {
+                        coordenadaEntrada = new Coordenada(x, y);
+                        break for1;
+                    }
+                }
+            }
+            return coordenadaEntrada;
+        }
+        catch (Exception erro)
+        {
+            throw new Exception("O labirinto possui defeito");
+        }
     }
 
     public String toString ()

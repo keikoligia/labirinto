@@ -4,6 +4,12 @@ public class Matriz
     private int numColunas;
     private int lin;
     private int col;
+    private char[][] labirinto;
+
+    public Matriz(char[][] lab)
+    {
+        this.labirinto = lab;
+    }
 
     public int getTamanho()
     {
@@ -13,23 +19,47 @@ public class Matriz
         return tamanho;
     }
 
-    public String getBaixo()
+    public char getBaixo(Coordenada coord)
     {
-        return "("+ Integer.parseInt(String.valueOf(lin+1)) + "," + col + ")";
+        lin = coord.getX();
+        col = coord.getY();
+        return labirinto[lin + 1][col];
     }
 
-    public String getCima()
+    public char getCima(Coordenada coord)
     {
-        return "(" + Integer.parseInt(String.valueOf(lin-1)) + "," + col + ")";
+        lin = coord.getX();
+        col = coord.getY();
+        return labirinto[lin - 1][col];
     }
 
-    public String getDireita()
+    public char getDireita(Coordenada coord)
     {
-        return "(" + lin + "," + Integer.parseInt(String.valueOf(col+1)) + ")";
+        lin = coord.getX();
+        col = coord.getY();
+        return labirinto[lin][col + 1];
     }
 
-    public String getEsquerda()
+    public char getEsquerda(Coordenada coord)
     {
-        return "(" + lin + "," + Integer.parseInt(String.valueOf(col-1)) + ")";
+        lin = coord.getX();
+        col = coord.getY();
+        return labirinto[lin][col - 1];
+    }
+
+    public void marcar(int linha, int coluna) throws Exception
+    {
+        if(labirinto[linha][coluna] != ' ')
+            throw new Exception ("parâmetro incorreto");
+        else
+            labirinto[linha][coluna] = '*';
+    }
+
+    public void desmarcar(int linha, int coluna) throws Exception
+    {
+        if(labirinto[linha][coluna] != '*')
+            throw new Exception ("parâmetro incorreto");
+        else
+            labirinto[linha][coluna] = ' ';
     }
 }
