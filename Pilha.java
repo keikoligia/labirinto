@@ -8,7 +8,7 @@ public class Pilha <X> implements Cloneable
 
     public Pilha (int tamanho) throws Exception
     {
-        if (tamanho<=0)
+        if (tamanho < 0)
             throw new Exception ("Tamanho invalido");
 
         this.elemento       = new Object [tamanho]; //this.elemento=new X [tamanho];
@@ -117,12 +117,17 @@ public class Pilha <X> implements Cloneable
         return this.ultimo==-1;
     }
 
+    public int getTamanho()
+    {
+        return this.ultimo + 1;
+    }
+
     public String toString ()
     {
-        String ret = (this.ultimo+1) + " elemento(s)";
-        
+        String ret = "";//(this.ultimo+1) + " elemento(s)";
+
         if (this.ultimo!=-1)
-            ret += ", sendo o ultimo "+this.elemento[this.ultimo];
+            ret += this.elemento[this.ultimo];
             
         return ret;
     }

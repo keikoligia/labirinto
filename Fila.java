@@ -72,14 +72,15 @@ public class Fila <X> implements Cloneable
             this.ultimo++;
         else
             this.ultimo=0;
-        */            
+        */
+        this.quantos++;
         this.ultimo = (this.ultimo+1) % this.elemento.length; // aumento circular
     }
 
     public X recupereUmItem () throws Exception // FIFO
     {
         if (this.quantos==0) // vazia
-            throw new Exception ("Nada a recuperar");
+            throw new Exception ("Nada a recuperar na fila");
 
         X ret=null;
         if (this.elemento[this.primeiro] instanceof Cloneable)
